@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 数据库
+  postgres:
+    # linux
+    # docker pull swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/library/postgres:latest
+    # docker tag  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/library/postgres:latest  docker.io/library/postgres:latest
+    # image: docker.io/library/postgres:latest
+
+    # mac
+    # docker pull swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/bitnami/postgresql:17.5.0-linuxarm64
+    # docker tag  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/bitnami/postgresql:17.5.0-linuxarm64  docker.io/bitnami/postgresql:17.5.0
+    image: docker.io/bitnami/postgresql:17.5.0
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U root"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    driver: local
+
+# /data/exec/postgresql/postgres_data && cd /data/exec/postgresql
+# vim docker-compose.yaml
+# docker compose up -d
+
+

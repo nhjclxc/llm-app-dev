@@ -14,14 +14,13 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).with_name(".env"))
 openai_api_key = os.getenv("OPENAI_API_KEY")
 qwen_api_key = os.getenv("QWEN_API_KEY")
-
-if not qwen_api_key:
-    sys.exit("未找到 QWEN_API_KEY：请在仓库根目录的 .env 中配置它。")
+model_chat = os.getenv("QWEN_MODEL")
+base_url = os.getenv("BASE_URL")
 
 # 调用千问的语言模型
 # https://bailian.console.aliyun.com/cn-beijing/?tab=api#/api/?type=model&url=3016807
-base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
-model_chat = "qwen3.8-27b"
+if not qwen_api_key:
+    sys.exit("未找到 QWEN_API_KEY：请在仓库根目录的 .env 中配置它。")
 
 
 HTTPS_PROXY = os.getenv("HTTPS_PROXY")
