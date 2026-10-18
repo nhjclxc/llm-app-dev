@@ -1,7 +1,7 @@
 # pytorch01_神经网络包nn和优化器optimizer相关教程.md
-import pytest
-# 对于一个大模型应用开发工程师，
+import time
 
+import pytest
 import torch
 import torch.nn as nn
 from torchvision import datasets, transforms
@@ -95,7 +95,7 @@ def current_device() -> torch.device:
     # print(device)
 
 def test_my_mlp():
-
+    start = time.perf_counter_ns()
     # 1、加载数据
     transform = transforms.ToTensor()
     train_dataset = datasets.MNIST(
@@ -202,6 +202,9 @@ def test_my_mlp():
     # 7. 保存模型参数
     torch.save(model.state_dict(), "mnist_model.pth")
     print("模型参数已保存")
+
+    end = time.perf_counter_ns()
+    print(f"总计耗时：{end - start} ms")
 
 def test_total_params():
     device = current_device()
