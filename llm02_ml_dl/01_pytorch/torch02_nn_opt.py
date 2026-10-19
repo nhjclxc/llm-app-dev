@@ -196,10 +196,10 @@ def test_nn3() -> None:
         print(f"测试集平均损失：{avg_test_loss:.6f}")
 
     # 保存模型➕参数
-    torch.save(model, "../data/model/LinearModel.pth")
+    torch.save(model, "../data/output/LinearModel.pth")
 
     # 仅保存参数
-    torch.save(model.state_dict(), "../data/model/LinearModel-dict.pth")
+    torch.save(model.state_dict(), "../data/output/LinearModel-dict.pth")
 
 
     pass
@@ -207,7 +207,7 @@ def test_nn3() -> None:
 def test_load_linear_model() -> None:
     # 加载模型和参数
     model = torch.load(
-        "../data/model/LinearModel.pth",
+        "../data/output/LinearModel.pth",
         map_location="cpu",
         weights_only=False
     )
@@ -219,7 +219,7 @@ def test_load_linear_model_dict() -> None:
     # 定义模型
     model = LinearModel()
     # 加载参数
-    model.load_state_dict(torch.load("../data/model/LinearModel-dict.pth", map_location=current_device()))
+    model.load_state_dict(torch.load("../data/output/LinearModel-dict.pth", map_location=current_device()))
 
     do_eval(model)
 
