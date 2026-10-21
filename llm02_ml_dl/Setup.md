@@ -107,7 +107,7 @@ print(x * 2)
 curl -L -o ./boston-housing-dataset.zip https://www.kaggle.com/api/v1/datasets/download/altavish/boston-housing-dataset
 ```
 
-### 波士顿房价
+### 心脏疾病分类
 heart-disease.csv
 [波士顿房价](https://www.kaggle.com/datasets/altavish/boston-housing-dataset)，
 
@@ -119,6 +119,12 @@ heart-disease.csv
 ```shell
 curl -L -o ./boston-housing-dataset.zip https://www.kaggle.com/api/v1/datasets/download/altavish/boston-housing-dataset
 ```
+
+
+### 垃圾邮件分类
+[SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms%2Bspam%2Bcollection)
+
+
 
 ### 手写数字体识别
 
