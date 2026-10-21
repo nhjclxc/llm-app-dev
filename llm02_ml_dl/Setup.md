@@ -17,7 +17,7 @@ uv add pytest
 uv add numpy pandas matplotlib
 uv add jupyterlab jupyterlab-lsp python-lsp-server[all] jupyter-ai jupyterlab-variableinspector jupyterlab-code-formatter
 # 安装 pytorch
-# scikit-learn 机器学习包，joblib 保存训练好的机器学习模型
+# scikit-learn 机器学习包，joblib 保存训练好的机器学习模型, uv add skorch keras
 uv add scikit-learn joblib kaggle
 uv add torch torchvision
 # 安装深度学习加速模块 cdDNN（仅gpu环境需要安装）
@@ -94,7 +94,10 @@ print(x * 2)
 
 
 ## 1.3 具体数据集
-### 波士顿房价
+
+### HousingData 波士顿房价
+
+[lm01_boston-housing.ipynb](01_sklearn/self/sklearn01_linear_model/lm01_boston-housing.ipynb)
 
 [波士顿房价](https://www.kaggle.com/datasets/altavish/boston-housing-dataset)，
 
@@ -107,18 +110,75 @@ print(x * 2)
 curl -L -o ./boston-housing-dataset.zip https://www.kaggle.com/api/v1/datasets/download/altavish/boston-housing-dataset
 ```
 
-### 波士顿房价
-heart-disease.csv
-[波士顿房价](https://www.kaggle.com/datasets/altavish/boston-housing-dataset)，
+### heart-disease 心脏疾病分类
 
-[示例代码](https://www.kaggle.com/code/chenjiaxin0/notebook8ea22606fe)
+[lm03_heart-disease.ipynb](01_sklearn/self/sklearn01_linear_model/lm03_heart-disease.ipynb)
 
-[波士顿房价预测](https://www.kaggle.com/competitions/dl-bhpp)
+[Heart Disease Predictions](https://www.kaggle.com/code/desalegngeb/heart-disease-predictions)，
+
+[Heart Disease Dataset](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset)
 
 
 ```shell
-curl -L -o ./boston-housing-dataset.zip https://www.kaggle.com/api/v1/datasets/download/altavish/boston-housing-dataset
+curl -L -o ./heart-disease-dataset.zip https://www.kaggle.com/api/v1/datasets/download/johnsmith88/heart-disease-dataset
 ```
+
+
+### SMSSpamCollection 垃圾邮件分类
+
+[lm05_SMSSpamCollection.ipynb](01_sklearn/self/sklearn01_linear_model/lm05_SMSSpamCollection.ipynb)
+
+[SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms%2Bspam%2Bcollection)
+
+
+### Iris Species 鸢尾花
+
+[neighbors01_KNeighborsClassifier.ipynb](01_sklearn/self/sklearn02_neighbors/neighbors01_KNeighborsClassifier.ipynb)
+
+[Iris Species](https://www.kaggle.com/datasets/uciml/iris)
+
+```shell
+#!/bin/bash
+curl -L -o ./iris.zip https://www.kaggle.com/api/v1/datasets/download/uciml/iris
+```
+
+### California Housing Prices 加州房价
+
+[neighbors02_KNeighborsRegressor.ipynb](01_sklearn/self/sklearn02_neighbors/neighbors02_KNeighborsRegressor.ipynb)
+
+[California Housing Prices](https://www.kaggle.com/datasets/camnugent/california-housing-prices)
+
+```shell
+curl -L -o ./california-housing-prices.zip https://www.kaggle.com/api/v1/datasets/download/camnugent/california-housing-prices
+```
+
+### Telco Customer Churn 用户流失预测(分类是否流失)
+
+[tree01_DecisionTreeClassifier.ipynb](01_sklearn/self/sklearn03_tree/tree01_DecisionTreeClassifier.ipynb)
+
+[Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+
+```shell
+curl -L -o ./telco-customer-churn.zip https://www.kaggle.com/api/v1/datasets/download/blastchar/telco-customer-churn
+```
+
+### Customer Segmentation Data 用户分群
+
+初学 [Mall Customer Segmentation Data](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python)
+
+高级 [Customer Segmentation Dataset](https://www.kaggle.com/datasets/yasserh/customer-segmentation-dataset)
+
+```shell
+# 初学
+curl -L -o ./customer-segmentation-tutorial-in-python.zip https://www.kaggle.com/api/v1/datasets/download/vjchoudhary7/customer-segmentation-tutorial-in-python
+
+# 高级
+curl -L -o ./customer-segmentation-dataset.zip https://www.kaggle.com/api/v1/datasets/download/yasserh/customer-segmentation-dataset
+```
+
+### User Behavior Analysis 用户行为分析
+
+https://github.com/KomailMK/User-behavior-analysis
 
 ### 手写数字体识别
 
@@ -128,6 +188,7 @@ curl -L -o ./boston-housing-dataset.zip https://www.kaggle.com/api/v1/datasets/d
 curl -L -o ./mnist-dataset-dataset.zip https://www.kaggle.com/api/v1/datasets/download/hojjatk/mnist-dataset
 ```
 
+### 
 
 
 
