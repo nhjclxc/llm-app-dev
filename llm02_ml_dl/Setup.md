@@ -180,6 +180,26 @@ curl -L -o ./customer-segmentation-dataset.zip https://www.kaggle.com/api/v1/dat
 
 https://github.com/KomailMK/User-behavior-analysis
 
+
+### Access-Log-Anomaly-Detection-Dataset 访问日志异常检测数据集
+
+[访问日志异常检测数据集](https://github.com/Manas-stack13/Access-Log-Anomaly-Detection-Dataset)
+
+
+### redit Card Fraud Detection（ULB） 异常交易筛查
+
+[kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?utm_source=chatgpt.com)
+
+[教程](https://fraud-detection-handbook.github.io/fraud-detection-handbook/Foreword.html)
+
+
+### Server Metrics Anomaly Detection 服务器指标异常分析
+
+[github](https://github.com/numenta/NAB.git)
+
+[github 数据](https://github.com/numenta/NAB/blob/master/data/README.md)
+
+
 ### 手写数字体识别
 
 [手写数字体识别](https://www.kaggle.com/datasets/hojjatk/mnist-dataset): [文件链接]() 建议直接使用使用：from torchvision.datasets import MNIST

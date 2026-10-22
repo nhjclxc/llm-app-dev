@@ -24,6 +24,10 @@ https://scikit-learn.org/stable/user_guide.html
 
 ### 线性回归 LinearRegression
 
+```python
+from sklearn.linear_model import LinearRegression
+```
+
 连续值的预测问题，
 经典问题：波士顿房价、广告销售额预测、用电量预测
 - [lm01_boston-housing.ipynb](sklearn01_linear_model/lm01_boston-housing.ipynb)
@@ -38,6 +42,10 @@ Ridge 并不是用来解决另一种预测任务的，而是在线性回归的�
 
 ### 逻辑回归 LogisticRegression
 
+```python
+from sklearn.linear_model import LogisticRegression
+```
+
 分类问题
 经典问题：心脏疾病预测、垃圾邮件分类
 - [lm03_heart-disease.ipynb](sklearn01_linear_model/lm03_heart-disease.ipynb)
@@ -45,6 +53,10 @@ Ridge 并不是用来解决另一种预测任务的，而是在线性回归的�
 
 
 ### K 近邻 KNeighborsClassifier
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+```
 
 - KNeighborsClassifier 分类
 - KNeighborsRegressor 回归
@@ -58,23 +70,24 @@ Ridge 并不是用来解决另一种预测任务的，而是在线性回归的�
 
 ### 决策树 DecisionTreeClassifier
 
+```python
+from sklearn.tree import DecisionTreeClassifier
+```
+
 DecisionTreeClassifier、DecisionTreeRegressor
 
 学习分类和回归、树的分裂、特征重要性、过拟合，以及集成学习的基本思想。
 
 经典项目： 心脏疾病分类、用户流失预测、房价预测。
 - [tree01_DecisionTreeClassifier.ipynb](sklearn03_tree/tree01_DecisionTreeClassifier.ipynb)
+- [tree02_DecisionTreeClassifier.ipynb](sklearn03_tree/tree02_DecisionTreeClassifier.ipynb)
 
-
-### 随机森林 RandomForestClassifier
-
-RandomForestClassifier、RandomForestRegressor
-
-学习分类和回归、树的分裂、特征重要性、过拟合，以及集成学习的基本思想。
-
-经典项目： 心脏疾病分类、用户流失预测、房价预测。
 
 ### 聚类 K-Means、DBSCAN
+
+```python
+from sklearn.cluster import KMeans
+```
 
 学习无监督学习、聚类中心、密度聚类、聚类数量和聚类评价。
 
@@ -84,7 +97,7 @@ DBSCAN：基于密度的聚类算法，不需要提前指定聚类数量，可�
 
 
 经典项目： 用户分群、商品分群、行为模式分析。
-- 用户分群：Customer Segmentation
+- 用户分群：Customer Segmentation [cluster01_KMeans.ipynb](sklearn05_cluster/cluster01_KMeans.ipynb)
 
 
 ## 第二优先级：建议掌握
@@ -92,46 +105,60 @@ DBSCAN：基于密度的聚类算法，不需要提前指定聚类数量，可�
 用于传统分类、异常检测、特征分析和无监督学习。
 ### 朴素贝叶斯 MultinomialNB
 
+```python
+from sklearn.naive_bayes import MultinomialNB
+```
+
 MultinomialNB、BernoulliNB、GaussianNB
 
 学习贝叶斯公式、条件独立假设、类别概率，以及文本词频特征如何参与分类。
 
 经典项目： 垃圾短信识别、新闻文本分类。可以和你已学的 CountVectorizer、TfidfVectorizer 结合。
+- [nb01_MultinomialNB.ipynb](sklearn06_naive_bayes/nb01_MultinomialNB.ipynb)
+
 
 ### 支持向量机 SVC / LinearSVC
+```python
+from sklearn.svm import SVC, LinearSVC, SVR
+```
 
 SVC、LinearSVC、SVR
 
 学习分类边界、最大间隔、核函数，以及特征标准化对模型的影响。
 
 经典项目： 文本分类、垃圾短信识别、小样本分类。
+- [svm01_SVC.ipynb](sklearn06_svm/svm01_SVC.ipynb)
 
-### 梯度提升树 HistGradientBoostingClassifier
-
-HistGradientBoostingClassifier、HistGradientBoostingRegressor，以及了解 GradientBoostingClassifier。
-
-学习多个弱模型逐步纠正误差的思路，理解 boosting 和随机森林的区别。
-
-经典项目： 用户转化率预测、信用风险分类、结构化数据预测。
 
 ### 降维算法 主成分分析 PCA
 
-PCA
+```python
+from sklearn.decomposition import PCA
+```
 
 学习高维数据降到低维的思路、方差保留和可视化。
 
 经典项目： 高维数据探索、特征压缩、聚类前的数据分析。
+- [decomposition01_PCA.ipynb](sklearn07_decomposition/decomposition01_PCA.ipynb)
 
 ### 异常检测 IsolationForest、LocalOutlierFactor
+```python
+from sklearn.ensemble import IsolationForest
+#  随机森林 RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 
-IsolationForest、LocalOutlierFactor
+from sklearn.neighbors import LocalOutlierFactor
+```
 
 学习异常样本识别，以及没有完整异常标签时如何探索数据。
 
 经典项目： 异常访问检测、异常交易筛查、服务器指标异常分析。
-学习异常样本识别，以及没有完整异常标签时如何探索数据。
+- [ensemble02_IsolationForest.ipynb](sklearn08_ensemble/ensemble02_IsolationForest.ipynb)
 
-经典项目： 异常访问检测、异常交易筛查、服务器指标异常分析。
+经典项目： 心脏疾病分类、用户流失预测、房价预测。
+- [ensemble01_RandomForestClassifier.ipynb](sklearn08_ensemble/ensemble01_RandomForestClassifier.ipynb)
+
+
 
 ### 
 

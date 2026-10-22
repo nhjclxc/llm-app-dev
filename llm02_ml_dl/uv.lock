@@ -2189,6 +2189,7 @@ dependencies = [
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "pandas" },
+    { name = "pandas-stubs" },
     { name = "pytest" },
     { name = "python-lsp-server", extra = ["all"] },
     { name = "scikit-learn" },
@@ -2196,6 +2197,7 @@ dependencies = [
     { name = "torch" },
     { name = "torchaudio" },
     { name = "torchvision" },
+    { name = "types-pandas" },
 ]
 
 [package.dev-dependencies]
@@ -2215,6 +2217,7 @@ requires-dist = [
     { name = "matplotlib", specifier = ">=3.11.2" },
     { name = "numpy", specifier = ">=2.5.4" },
     { name = "pandas", specifier = ">=3.0.6" },
+    { name = "pandas-stubs", specifier = "==3.0.5.260914" },
     { name = "pytest", specifier = ">=9.1.1" },
     { name = "python-lsp-server", extras = ["all"], specifier = ">=1.15.0" },
     { name = "scikit-learn", specifier = ">=1.9.1" },
@@ -2222,6 +2225,7 @@ requires-dist = [
     { name = "torch", specifier = ">=2.14.1" },
     { name = "torchaudio", specifier = ">=2.11.0" },
     { name = "torchvision", specifier = ">=0.29.1" },
+    { name = "types-pandas", specifier = "==2.0.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -3055,6 +3059,18 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/9d/8a/1c5bd2642b450e374b6191189f47c49538fe41f82348a66de6f647e6ab59/pandas-3.0.6-cp315-cp315t-musllinux_1_2_x86_64.whl", hash = "sha256:8fe77b408d82e2615674dfed62533b95e18a03610573877422aada4f625d4947", size = 11709148, upload-time = "2026-09-17T23:23:09.082Z" },
     { url = "https://files.pythonhosted.org/packages/73/3d/1b142bd0d0f1326a5d98c91c955b923cd1e06b5eecb428cd9d8817fa01c0/pandas-3.0.6-cp315-cp315t-win_amd64.whl", hash = "sha256:83e91d15738d7783c050197cef2f2cf82fc6353dae9865aa87ed1fa16aa4d55a", size = 10161518, upload-time = "2026-09-17T23:23:12.365Z" },
     { url = "https://files.pythonhosted.org/packages/0b/a3/6419c14da2adc1f09a6a183b8f91d7494d325b287f4ca984ac04f663638a/pandas-3.0.6-cp315-cp315t-win_arm64.whl", hash = "sha256:963ca21199097a84c7827c4678b04e30833084fbf8ef44fde3fa7180a29f8fa0", size = 9364529, upload-time = "2026-09-17T23:23:15.274Z" },
+]
+
+[[package]]
+name = "pandas-stubs"
+version = "3.0.5.260914"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c1/93/8948ae6c1e1e3d6833596fd266f7be2d27c1451b8be094975ad42c5e842e/pandas_stubs-3.0.5.260914.tar.gz", hash = "sha256:3f6fc1f147f68fd89c007105e7c94a948acb4ecd7eb20dc1c02e153c4ed5c250", size = 117622, upload-time = "2026-09-14T16:42:35.065Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9a/cb/5ad79e02a556cc23fed5816de0109fa8af660c66cfa5f4af74c3e8d4cd26/pandas_stubs-3.0.5.260914-py3-none-any.whl", hash = "sha256:39a1300c5c5c55fdf609e3476805decce5d5015539a4dcb683449f8feaeee2fb", size = 177344, upload-time = "2026-09-14T16:42:33.771Z" },
 ]
 
 [[package]]
@@ -4652,6 +4668,14 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/27/17/c9cdebfc86e824e25592a20a8871225dad61b6b6c0101f4a2cb3434890dd/txt2tags-3.9.tar.gz", hash = "sha256:7e4244db6a63aaa58fc17fa4cdec62b6fb89cc41d3a00ba4edaffa37f27d6746", size = 51681, upload-time = "2023-10-06T18:07:37.723Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/fd/89/97f8ac63d5d3cd7a1e9bc2e25fa7709db2fb2f082aea41fac3badfab4eb6/txt2tags-3.9-py2.py3-none-any.whl", hash = "sha256:7b1e037798cdf0714d8edfb399733a27978b91c2ac2a2a61de54a03c006115fa", size = 52541, upload-time = "2023-10-06T18:07:34.525Z" },
+]
+
+[[package]]
+name = "types-pandas"
+version = "2.0.0"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/17/6e/27ef4fd1594b9b4c0e90eba934e957f592e706347e38909cfe2fafe955b3/types_pandas-2.0.0-py3-none-any.whl", hash = "sha256:a1aa47279db7f3a6599b20b6c6243dbe72a864449f6a9083c7ebaa67fb0d246b", size = 1627, upload-time = "2026-09-12T09:49:00.091Z" },
 ]
 
 [[package]]
