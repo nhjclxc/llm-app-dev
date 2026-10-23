@@ -200,6 +200,18 @@ https://github.com/KomailMK/User-behavior-analysis
 [github 数据](https://github.com/numenta/NAB/blob/master/data/README.md)
 
 
+
+### Credit Card Fraud Detection 异常交易筛查
+
+[kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+
+[Reproducible Machine Learning for Credit Card Fraud Detection - Practical Handbook](https://fraud-detection-handbook.github.io/fraud-detection-handbook/Foreword.html)
+
+```shell
+curl -L -o ./creditcardfraud.zip  https://www.kaggle.com/api/v1/datasets/download/mlg-ulb/creditcardfraud
+```
+
+
 ### 手写数字体识别
 
 [手写数字体识别](https://www.kaggle.com/datasets/hojjatk/mnist-dataset): [文件链接]() 建议直接使用使用：from torchvision.datasets import MNIST

@@ -14,6 +14,10 @@ https://sklearn.org/stable/supervised_learning.html
 https://scikit-learn.org/stable/user_guide.html
 
 
+这里需要区分两种实验：
+- 无监督检测： 训练时使用所有训练样本的特征，不传入标签。
+- 半监督式异常检测： 如果已知哪些训练样本是正常访问，可以只用正常样本训练，然后检测测试集中的异常。这种方式通常更符合“学习正常行为、发现偏离行为”的目标。
+
 
 
 # 一、sklearn 到底要学哪些模型？
