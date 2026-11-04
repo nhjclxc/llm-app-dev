@@ -537,6 +537,21 @@ def test_tensor17():
     # model.load_state_dict(checkpoint["weights"])
     ...
 
+def test_tensor18():
+    # 张量组合	cat()、stack()、split()、chunk()
+    x = torch.randn(1, 3)
+    print(x.shape)
+    print(x, x.shape)
+    x2 = torch.cat((x, x, x))
+    print(x2, x2.shape)
+
+    x3 = torch.cat((x2, x.T), dim=1)
+    print(x3)
+
+
+    ...
+
+
 def tets1():
 
     import asyncio

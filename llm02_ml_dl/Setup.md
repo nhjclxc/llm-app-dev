@@ -15,9 +15,8 @@ source .venv/bin/activate
 ## 4️⃣ 安装依赖
 uv add pytest
 uv add numpy pandas matplotlib
-uv add jupyterlab jupyterlab-lsp python-lsp-server[all] jupyter-ai jupyterlab-variableinspector jupyterlab-code-formatter
 # 安装 pytorch
-# scikit-learn 机器学习包，joblib 保存训练好的机器学习模型, uv add skorch keras
+# scikit-learn 机器学习包，joblib 保存训练好的机器学习模型, kaggle 用于快速下载 kaggle 上面的项目
 uv add scikit-learn joblib kaggle
 uv add torch torchvision
 # 安装深度学习加速模块 cdDNN（仅gpu环境需要安装）
@@ -34,15 +33,6 @@ pip install -r requirements.txt
 uv pip install -r requirements.txt
 
 ```
-
-项目下所有ml、dl相关模型代码使用 pytorch 框架实现
-
-
-启动 jupyterlab
-```shell
-uv run jupyter lab
-```
-
 
 验证 pytorch 是否可用
 ```python

@@ -1,94 +1,10 @@
-import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.ensemble import IsolationForest
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
-# 1. 加载用户分群 CSV 数据集
-df = pd.read_csv("../../../data/ml/Access-Log-Anomaly-Detection-Dataset.csv", sep=",", names=["timestamp","masked_user","source_ip","destination_ip","action","resource","protocol","access_result","location","device_type","login_attempt_count","anomaly_score","target","log_hour","day_of_week","month","time_diff_prev","user_activity_frequency","unique_actions","source_subnet","dest_subnet","resource_category","access_flag","protocol_HTTP","protocol_HTTPS","protocol_FTP","protocol_SSH","protocol_RDP","device_desktop","device_mobile","device_tablet","location_count","anomaly_bin","session_duration","event_count_session","session_complexity"])
+将pytorch的optimizer相关的优化器内容完整的输出到 "02_pytorch/markdowns/PyTorch05_optimizer.md" 文档里面，要求是从0到1的教学学习过程，以及优化器如何选择等相关内容
 
-# 删除第一行
-df = df.drop(df.index[0])
-print(df.shape)
-df.head()
+将pytorch的loss损失函数相关的内容完整的输出到 "02_pytorch/markdowns/PyTorch06_loss.md" 文档里面，要求是从0到1的教学学习过程，以及损失函数如何选择等相关内容
 
-# 2. 检查字段、缺失值和 target 标签
-print(df.isnull().sum())
-print()
-# 检查每一列的唯一值
-print(df.nunique())
+将pytorch的DataLoader数据加载器相关的内容完整的输出到 "02_pytorch/markdowns/PyTorch07_DataLoader.md" 文档里面，要求是从0到1的教学学习过程，以及DataLoader数据加载器如何使用等相关内容
 
-# 3. 特征工程
+现在要求你在“02_pytorch/markdowns/PyTorch08_MLP.md”里面生成“MLP 多层感知机”相关的学习知识点，包括但不限于学习前向传播、反向传播、激活函数、梯度消失与梯度爆炸、初始化、正则化。
 
-# 查看每一列有多少个不同的值
-print(df.nunique())
-print()
-
-df = df.drop(labels=["timestamp","masked_user","source_ip","destination_ip","resource"], axis=1)
-print(df.nunique())
-df
-
-# 4. 拆分特征 X 和真实标签 y
-y = df["target"]
-y2 = df["anomaly_score"]
-X = df.drop(labels=["target", "anomaly_score"], axis=1)
-print(X.shape, len(y), len(y2))
-y_target = pd.DataFrame(y1)
-y_anomaly_score = pd.DataFrame(y2)
-print(X.shape, y.shape, y2.shape)
-
-# 5. 划分训练集与测试集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=23)
-print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
-
-# 6. 构建预处理器
-#    ├── 数值特征：缺失值填充、标准化
-#    └── 类别特征：缺失值填充、独热编码
-
-numeric_columns = X.select_dtypes(include=[np.number]).columns.tolist()
-categorical_columns = X.select_dtypes(include=["str", "object", "category"]).columns.tolist()
-
-numeric_pipeline = Pipeline([
-    ("imputer", SimpleImputer(strategy="mean")),
-    ("scaler", StandardScaler()),
-])
-categorical_pipeline = Pipeline([
-    ("imputer", SimpleImputer(strategy="most_frequent")),
-    ("encoder", OneHotEncoder(handle_unknown="ignore")),
-])
-
-preprocessor = ColumnTransformer([
-    ("numeric", numeric_pipeline, numeric_columns),
-    ("categorical", categorical_pipeline, categorical_columns),
-])
-
-model = Pipeline([
-    ("preprocessor", preprocessor),
-    ("detector", IsolationForest( n_estimators=200, contamination="auto", random_state=23, n_jobs=-1))
-])
-
-# 7. 训练 IsolationForest
-#    └── 仅使用 X_train，不传入 y_train
-# model.fit(X_train)
-model.fit(X_train, y_train)
-
-# 8. 对 X_test 预测
-#    ├── predict() == 1  → 正常
-#    └── predict() == -1 → 异常
-y_pred_raw = model.predict(X_test)
-# np.where(条件, 条件为 True 时的值, 条件为 False 时的值)
-y_pred = np.where(y_pred_raw == 1, "benignm", "alicious")
-y_pred
-
-# 9. 将正常/异常映射为 benign/malicious
-
-# 10. 与真实标签比较
-#     ├── Accuracy
-#     ├── Precision、Recall、F1
-#     └── Confusion Matrix
-# 11. 保存检测结果 CSV
-
+现在要求你在“02_pytorch/markdowns/PyTorch09_CNN.md”里面生成“CNN 卷积神经网络”相关的学习知识点，包括但不限于`nn.Conv2d`、`nn.MaxPool2d`、卷积核、步长、填充、特征图、感受野等知识
