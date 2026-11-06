@@ -51,7 +51,7 @@ print(x * 2)
 ```
 
 配置 kaggle cli token，进入[kaggle官网](https://www.kaggle.com/settings/api)生成 api token
-
+export KAGGLE_API_TOKEN= 
 
 # 1. 寻找数据集网站
 
@@ -202,12 +202,57 @@ curl -L -o ./creditcardfraud.zip  https://www.kaggle.com/api/v1/datasets/downloa
 ```
 
 
-### 手写数字体识别
+### MNIST 手写数字体识别
 
 [手写数字体识别](https://www.kaggle.com/datasets/hojjatk/mnist-dataset): [文件链接]() 建议直接使用使用：from torchvision.datasets import MNIST
 
 ```shell
 curl -L -o ./mnist-dataset-dataset.zip https://www.kaggle.com/api/v1/datasets/download/hojjatk/mnist-dataset
+```
+
+### cifar-10 图像分类
+
+
+[kaggle 项目地址](https://www.kaggle.com/datasets/ayush1220/cifar10)
+
+[kaggle 项目地址2](https://www.kaggle.com/datasets/pankrzysiu/cifar10-python)
+
+[kaggle 项目地址3](https://docs.pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html)
+
+[kaggle 项目地址](https://www.kaggle.com/code/stefancomanita/cifar-10-image-classification-with-cnn-in-pytorch)
+
+[toronto 官方数据集](https://cave.cs.toronto.edu/kriz/cifar.html)
+
+[torch 官方数据集](https://docs.pytorch.org/vision/main/generated/torchvision.datasets.CIFAR10.html)
+
+[kuangliu/pytorch-cifar](https://github.com/kuangliu/pytorch-cifar)
+
+
+```shell
+wget -c https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
+```
+
+```python
+import torch
+from torchvision import datasets, transforms
+
+transform_train = transforms.Compose([
+    transforms.RandomCrop(32, padding=4),
+    transforms.RandomHorizontalFlip(),
+    transforms.ToTensor(),
+    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+])
+# https://docs.pytorch.org/vision/main/generated/torchvision.datasets.CIFAR10.html
+trainset = datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_train)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=2)
+
+transform_test = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+])
+testset = datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
+testloader = torch.utils.data.DataLoader(testset, batch_size=64, shuffle=False, num_workers=2)
+
 ```
 
 ### 

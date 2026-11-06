@@ -8,3 +8,5 @@
 现在要求你在“02_pytorch/markdowns/PyTorch08_MLP.md”里面生成“MLP 多层感知机”相关的学习知识点，包括但不限于学习前向传播、反向传播、激活函数、梯度消失与梯度爆炸、初始化、正则化。
 
 现在要求你在“02_pytorch/markdowns/PyTorch09_CNN.md”里面生成“CNN 卷积神经网络”相关的学习知识点，包括但不限于`nn.Conv2d`、`nn.MaxPool2d`、卷积核、步长、填充、特征图、感受野等知识
+
+
