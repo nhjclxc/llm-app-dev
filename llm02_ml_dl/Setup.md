@@ -255,7 +255,36 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=64, shuffle=False, 
 
 ```
 
-### 
+### Stock Market Analysis 股票预测
+
+[kaggle ](https://www.kaggle.com/code/faressayah/stock-market-analysis-prediction-using-lstm)
+
+
+[github ](https://github.com/ranaroussi/yfinance)
+
+
+```shell
+
+uv add yfinance
+
+import yfinance as yf
+
+yf.download()
+
+
+```
+
+
+### IMDB 情感分类
+
+```python
+
+# 安装 hugging face 库: uv add datasets
+from datasets import load_dataset
+
+# 02_pytorch/torch10_RNN/torch10_RNN03_text_classification.ipynb
+
+```
 
 
 

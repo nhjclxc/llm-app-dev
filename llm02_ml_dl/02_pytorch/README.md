@@ -364,3 +364,584 @@ PyTorch Tutorials 2.14.0+cu130 documentation
 如果你希望我继续带你按章节学习，可以补充你偏好的讲解方式和目前的掌握程度，我会据此细化每章的 API、原理和项目练习。
 
 细化学习路线
+
+
+
+
+
+
+
+
+
+Deep Learning（深度学习）除了 CNN、RNN，还有很多经典且值得掌握的模型。不过，并不是所有模型都需要深入学习。对于你希望走的 AI 大模型应用开发工程师方向，我建议按照「基础网络 → 经典架构 → Transformer → 大模型」这条路线学习。
+
+先给你一个整体结论：
+
+必须重点掌握的模型家族：MLP、CNN、RNN/LSTM/GRU、Autoencoder、GAN、Attention、Transformer。
+
+其中，Transformer 是连接传统深度学习与现代大语言模型的核心。
+一、Deep Learning 经典模型全景图
+Deep Learning
+深度学习经典模型体系
+基础神经网络
+
+MLP / Feed Forward Network
+
+CNN 家族
+
+LeNet、AlexNet、VGG、ResNet、U-Net
+
+
+RNN 家族
+
+Simple RNN、LSTM、GRU、BiRNN
+
+
+生成模型
+
+Autoencoder、VAE、GAN、Diffusion
+
+
+注意力机制
+
+Attention、Self-Attention、Cross-Attention
+
+
+
+Transformer 家族
+
+Encoder、Decoder、Encoder-Decoder
+
+BERT、GPT、T5、ViT
+
+现代大模型体系
+
+LLM、多模态模型、扩散模型、MoE
+
+这是模型家族之间的学习关系示意，不代表所有模型严格按此顺序演进。
+二、除了 CNN、RNN，还必须学习哪些经典模型？
+1. MLP（多层感知机）
+
+必须掌握
+ 基础核心
+
+
+
+
+
+
+
+
+
+machinelearninggeek.com
+
+
+MLP（Multilayer Perceptron）是最基础的前馈神经网络。
+
+核心结构：
+输入层
+  ↓
+Linear
+  ↓
+ReLU
+  ↓
+Linear
+  ↓
+ReLU
+  ↓
+Linear
+  ↓
+输出层
+
+
+核心知识：
+- 全连接层 nn.Linear
+- 激活函数 ReLU、Sigmoid、Tanh、GELU
+- 前向传播与反向传播
+- 损失函数与优化器
+- Dropout、BatchNorm
+- 初始化与梯度问题
+经典应用：
+- 房价预测
+- 用户流失预测
+- 手写数字分类
+- 表格数据分类与回归
+你之前学习过的 784 → 256 → 128 → 10 MNIST 模型，本质上就是 MLP。
+2. LSTM、GRU、双向 RNN
+
+必须掌握
+ 序列模型
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+它们都属于 RNN 家族，但解决的问题和结构有所不同。
+模型	核心特点	典型应用
+Simple RNN	基础循环结构	简单序列预测
+LSTM	使用门控和细胞状态	长序列建模
+GRU	简化门控结构	时间序列、文本
+BiRNN	同时利用前向和反向信息	文本分类、序列标注
+
+重点掌握：
+- RNN 的梯度消失与梯度爆炸
+- LSTM 的输入门、遗忘门、输出门
+- GRU 的更新门、重置门
+- 双向网络的输出维度
+- Padding、Embedding、PackedSequence
+你已经接触过 RNN、LSTM 和 Embedding，接下来把 GRU、双向 LSTM 补上即可。
+3. Autoencoder（自编码器）
+
+推荐掌握
+ 无监督学习
+
+
+
+
+
+
+
+
+
+ibm.com
+
+
+Autoencoder 的核心思想是：
+
+将数据压缩成低维特征，再通过解码器重建原始数据。
+
+结构：
+原始输入
+   ↓
+Encoder（编码器）
+   ↓
+Latent Space（潜在空间）
+   ↓
+Decoder（解码器）
+   ↓
+重建数据
+
+
+例如：
+784 维图像
+   ↓
+256 维
+   ↓
+64 维
+   ↓
+16 维（压缩特征）
+   ↓
+64 维
+   ↓
+256 维
+   ↓
+784 维（重建图像）
+
+
+核心知识：
+- Encoder / Decoder
+- Latent Representation
+- Reconstruction Loss
+- MSELoss
+- 降维与特征提取
+经典应用：
+- 图像降噪
+- 异常检测
+- 数据压缩
+- 特征学习
+推荐项目：使用 Autoencoder 对 MNIST 手写数字进行降噪和重建。
+4. VAE（变分自编码器）
+
+推荐掌握
+ 生成模型
+
+
+
+
+
+
+
+
+
+paloaltonetworks.com
+
+
+VAE（Variational Autoencoder）可以看作 Autoencoder 的概率生成模型扩展。
+
+普通 Autoencoder：
+输入 → Encoder → 固定潜在向量 → Decoder → 重建数据
+
+
+VAE：
+输入
+ ↓
+Encoder
+ ↓
+均值 μ、方差参数 log σ²
+ ↓
+从概率分布中采样 z
+ ↓
+Decoder
+ ↓
+生成数据
+
+
+核心知识：
+- 概率分布
+- 均值与方差
+- Reparameterization Trick（重参数化技巧）
+- KL Divergence
+- Reconstruction Loss
+- ELBO
+经典应用：
+- 图像生成
+- 潜在空间表示学习
+- 数据生成
+VAE 是理解生成模型的重要基础，但如果你的目标是 LLM 应用开发，可以先了解原理，不必一开始就深入推导所有数学细节。
+5. GAN（生成对抗网络）
+
+推荐掌握
+ 生成模型
+
+
+
+
+
+
+
+
+
+ijpds.org
+
+
+GAN（Generative Adversarial Network）由两个网络组成：
+- Generator（生成器）：负责生成假数据。
+- Discriminator（判别器）：判断输入数据是真实数据还是生成数据。
+训练过程：
+随机噪声
+   ↓
+Generator
+   ↓
+生成假图片
+   ↓
+Discriminator ← 真实图片
+   ↓
+判断真假
+   ↓
+两个网络对抗训练
+
+
+经典模型：
+模型	特点
+GAN	基础生成对抗网络
+DCGAN	使用 CNN 生成图像
+Conditional GAN	根据条件生成数据
+CycleGAN	图像风格转换
+StyleGAN	高质量人脸生成
+
+重点理解 Generator、Discriminator、对抗损失和训练稳定性。
+6. Attention（注意力机制）
+
+必须掌握
+ LLM 核心基础
+
+
+
+
+
+
+
+
+
+aignishant.medium.com
+
+
+Attention 是现代 Transformer 和大语言模型的核心机制之一。
+
+它的核心思想是：
+
+让模型根据当前任务需要，动态计算不同信息的重要程度。
+
+核心公式：
+\[
+Attention(Q,K,V)=
+Softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\]
+
+其中：
+- Q（Query）：查询向量。
+- K（Key）：键向量。
+- V（Value）：值向量。
+- \(QK^T\)：计算不同位置之间的相关性。
+- Softmax：把相关性转换成权重。
+- 最后与 V 相乘，得到加权信息。
+必须学习：
+1. Scaled Dot-Product Attention
+2. Self-Attention
+3. Multi-Head Attention
+4. Cross-Attention
+5. Masked Attention
+Attention 本身不是一个独立的完整网络架构，而是一种可以嵌入网络中的机制。
+7. Transformer
+
+最高优先级
+ 大模型核心
+
+
+
+
+
+
+
+
+
+medium.com
+
+
+Transformer 是你从传统深度学习转向大模型开发必须掌握的架构。
+
+它不依赖传统 RNN 的逐时间步循环计算，而是通过 Attention 建模序列中不同位置之间的关系。
+
+经典结构：
+输入 Token
+   ↓
+Embedding
+   ↓
+Positional Encoding
+   ↓
+Multi-Head Attention
+   ↓
+Feed Forward Network
+   ↓
+Add & Norm
+   ↓
+输出
+
+
+需要重点学习三个架构类型：
+类型	代表模型	典型应用
+Encoder-only	BERT	文本理解、分类
+Decoder-only	GPT	文本生成、大语言模型
+Encoder-Decoder	T5	文本转换、翻译
+
+经典模型：
+- Transformer
+- BERT
+- GPT
+- T5
+- Vision Transformer (ViT)
+对你而言，Transformer 应当是传统深度学习学习阶段的重点收尾内容。
+8. Diffusion Model（扩散模型）
+
+推荐掌握
+ 现代生成模型
+
+
+
+
+
+
+
+
+
+itismevarnica.medium.com
+
+
+扩散模型是现代图像生成的重要技术路线。
+
+核心思想：
+- 正向过程：逐渐向真实数据添加噪声。
+- 反向过程：训练模型逐步去除噪声，恢复数据。
+真实图片
+   ↓
+添加噪声
+   ↓
+更多噪声
+   ↓
+纯噪声
+
+反向生成：
+
+纯噪声
+   ↓
+逐步去噪
+   ↓
+逐步恢复结构
+   ↓
+生成图片
+
+
+经典代表：
+- DDPM
+- DDIM
+- Latent Diffusion
+- Stable Diffusion
+如果未来想做多模态、图像生成、视觉大模型，建议深入学习。
+9. GNN（图神经网络）
+
+了解并按需深入
+ 图数据
+
+
+
+
+
+
+
+
+
+upgrad.com
+
+
+GNN（Graph Neural Network）主要处理图结构数据。
+
+例如：
+用户 A ─── 用户 B
+  │          │
+  │          │
+用户 C ─── 用户 D
+
+
+普通 CNN 处理规则网格数据，RNN 处理序列数据，而 GNN 主要处理节点、边和它们之间的关系。
+
+经典模型：
+- GCN
+- GraphSAGE
+- GAT
+- GIN
+应用：
+- 社交网络分析
+- 推荐系统
+- 知识图谱
+- 分子结构预测
+如果未来涉及知识图谱、推荐系统或图数据检索，再深入学习。
+
+三、哪些模型最值得优先学习？
+考虑到你的目标是 AI 大模型应用开发工程师，我把它们分成三个级别。
+优先级	模型	学习要求
+P0	MLP	熟练掌握
+P0	CNN	熟练掌握
+P0	RNN / LSTM / GRU	理解并能实现
+P0	Attention	深入掌握
+P0	Transformer	深入掌握
+P1	Autoencoder / VAE	理解并能实现基础项目
+P1	GAN	理解核心原理
+P1	Diffusion	理解核心原理
+按需	GNN	根据业务方向学习
+
+四、推荐的完整学习路线
+我建议你按照下面的顺序学习，而不是按模型出现的历史顺序逐个学习。
+PyTorch 深度学习学习路线
+1. 阶段 1：基础神经网络
+   - MLP
+   - 激活函数
+   - 损失函数
+   - 优化器
+   - BatchNorm / Dropout
+     重点掌握
+2. 阶段 2：计算机视觉
+   - CNN
+   - LeNet
+   - AlexNet
+   - VGG
+   - ResNet
+   - U-Net
+     重点掌握
+3. 阶段 3：序列模型
+   - Simple RNN
+   - LSTM
+   - GRU
+   - Bidirectional RNN
+   - Embedding / Padding
+     重点掌握
+4. 阶段 4：生成模型
+   - Autoencoder
+   - VAE
+   - GAN
+   - Diffusion
+     理解原理，完成基础项目
+5. 阶段 5：Attention
+   - Attention
+   - Self-Attention
+   - Multi-Head Attention
+   - Cross-Attention
+   - Mask
+     深入掌握
+6. 阶段 6：Transformer
+   - Transformer Encoder
+   - Transformer Decoder
+   - BERT
+   - GPT
+   - T5
+   - ViT
+     深入掌握
+7. 阶段 7：大模型基础
+   - Tokenizer
+   - Pretraining
+   - SFT
+   - LoRA / QLoRA
+   - RLHF / DPO
+   - RAG
+   - Agent
+     进入目标方向
+
+五、每个阶段建议完成的 PyTorch 项目
+模型	推荐实战项目
+MLP	MNIST 手写数字分类
+CNN	CIFAR-10 图像分类
+ResNet	CIFAR-10 ResNet 残差网络
+LSTM / GRU	IMDb 文本分类、股票预测
+Autoencoder	MNIST 图像降噪
+VAE	MNIST 数字生成
+GAN	MNIST 手写数字生成
+Attention	手写 Self-Attention
+Transformer	Transformer 英德机器翻译
+BERT	IMDb 文本情感分类
+GPT	字符级 GPT 文本生成
+Diffusion	MNIST 简单图像生成
+
+我的建议：你目前已经接触 MLP、CNN、RNN、LSTM、Embedding 和 Padding，不必回头重复学习。下一步先把 GRU 和经典 CNN 架构补齐，然后集中精力学习 Attention 和 Transformer。 这两部分对你后续学习 GPT、LangChain、LangGraph 和大模型应用开发最有价值。
+
+如果继续推进，我可以下一步给你制定一份Transformer 从零到一的 PyTorch 学习路线，包含每个知识点、数学公式、代码练习和完整项目。
+🧠明天开始学习 Transformer 路线轻点设置
+
+
+torch11_Autoencoder
+torch12_NLP
+torch13_Attention
+torch14_Transformer 
+torch15_BERT
+torch16_GPT
+torch17_GNN
+
+
