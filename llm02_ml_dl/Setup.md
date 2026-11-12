@@ -13,6 +13,7 @@ uv venv --python 3.11
 # Linux/macOS
 source .venv/bin/activate
 ## 4️⃣ 安装依赖
+uv add jupyterlab jupyterlab-lsp "python-lsp-server[all]" Darcula
 uv add pytest
 uv add numpy pandas matplotlib
 # 安装 pytorch
