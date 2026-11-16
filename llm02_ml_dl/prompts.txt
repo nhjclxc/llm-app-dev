@@ -16,4 +16,16 @@
 现在要求你在“02_pytorch/markdowns/PyTorch13_Attention.md”里面生成“Attention 注意力”相关的学习知识点。知识点包括但不限于：Attention、Scaled Dot-Product Attention、Self-Attention、Multi-Head Attention、Cross-Attention、Masked Attention、手写 Self-Attention。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。并且要先把原理讲清楚，相关内容越多越好，越详细越好
 现在要求你在“02_pytorch/markdowns/PyTorch13_nn.Attention.md”里面生成“torch内置的 Attention 注意力组件的使用”相关的学习知识点。知识点包括但不限于：nn.MultiheadAttention、F.scaled_dot_product_attention、nn.TransformerEncoderLayer、nn.TransformerDecoderLayer、nn.TransformerEncoder、nn.TransformerDecoder、FlexAttention 等更灵活的底层构建组件。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。并且要先把原理讲清楚，相关内容越多越好，越详细越好
 
+现在要求你在“02_pytorch/markdowns/PyTorch14_Tokenizer.md”里面生成“Tokenizer分词”相关的学习知识点。知识点包括但不限于：字符级分词、词级分词、子词级分词、BPE、WordPiece、Unigram、Tokenizer 的预处理过程、特殊 Token处理、Tokenizer 的编码与解码、Padding、Truncation 、 Attention Mask、Tokenizer 与上下文窗口、推理成本的关系 等更灵活的底层构建组件。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。并且要先把原理讲清楚，相关内容越多越好，越详细越好
+
+现在要求你在“02_pytorch/markdowns/PyTorch14_Embedding.md”里面生成“Embedding嵌入”相关的学习知识点。知识点包括但不限于：Embedding嵌入、nn.Embedding以及向量数据库等更灵活的底层构建组件。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。并且要先把原理讲清楚，相关内容越多越好，越详细越好
+
+现在要求你在“02_pytorch/markdowns/PyTorch16_NLP.md”里面生成“NLP 自然语言处理”相关的学习知识点。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。并且要先把原理讲清楚。当前主要是要将相关概念讲清楚，后续我会给你一个个要详细输出的子文档
+
+
+torch15_Transformer
+torch16_GPT
+torch17_BERT
+torch18_GNN
+
 

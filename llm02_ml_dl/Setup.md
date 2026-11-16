@@ -16,13 +16,19 @@ source .venv/bin/activate
 uv add jupyterlab jupyterlab-lsp "python-lsp-server[all]" Darcula
 uv add pytest
 uv add numpy pandas matplotlib
-# 安装 pytorch
+# 机器学习
 # scikit-learn 机器学习包，joblib 保存训练好的机器学习模型, kaggle 用于快速下载 kaggle 上面的项目
 uv add scikit-learn joblib kaggle
+# 深度学习
+# 安装 pytorch 相关
 uv add torch torchvision
 # 安装深度学习加速模块 cdDNN（仅gpu环境需要安装）
 uv add nvidia-cuda-runtime-cu12
 uv add nvidia-cudnn-cu12
+# NLP 相关
+uv add nltk jieba 
+# Hugging Face 提供了很多数据集和一些BERT预测训练模型
+uv add datasets transformers tokenizers sentencepiece
 ## 5️⃣ 运行代码
 uv run python main.py
 ## 6️⃣ 输出当前依赖
@@ -35,6 +41,12 @@ uv pip install -r requirements.txt
 
 ```
 
+tensorbroad
+混合精度训练
+nltk
+jieba
+
+
 验证 pytorch 是否可用
 ```python
 import torch
@@ -42,7 +54,7 @@ import torch
 print("PyTorch 版本：", torch.__version__)
 print("CUDA 是否可用：", torch.cuda.is_available())
 print("MPS 是否可用：", torch.backends.mps.is_available())
-device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu"))
 print("运行设备：", device)
 
 # 创建张量并进行计算
@@ -284,6 +296,21 @@ yf.download()
 from datasets import load_dataset
 
 # 02_pytorch/torch10_RNN/torch10_RNN03_text_classification.ipynb
+
+```
+
+
+### The Time Machine 时光机
+
+[kaggle](https://www.kaggle.com/datasets/alincijov/time-machine)
+
+
+```shell
+#!/bin/bash
+curl -L -o ./data/dl/tokenizer/time-machine.zip https://www.kaggle.com/api/v1/datasets/download/alincijov/time-machine
+```
+
+```python
 
 ```
 
