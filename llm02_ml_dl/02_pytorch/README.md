@@ -5,7 +5,7 @@
 
 (Learn the Basics)[https://docs.pytorch.org/tutorials/beginner/basics/intro.html]
 
-
+[d2l](https://zh.d2l.ai/)、[d2l-pdf](https://zh-v2.d2l.ai/d2l-zh.pdf)
 
 
 # PyTorch 深度学习完整学习路线（从 0 到 1）

@@ -20,12 +20,12 @@ uv add numpy pandas matplotlib
 # scikit-learn 机器学习包，joblib 保存训练好的机器学习模型, kaggle 用于快速下载 kaggle 上面的项目
 uv add scikit-learn joblib kaggle
 # 深度学习
-# 安装 pytorch 相关
-uv add torch torchvision
+# 安装 pytorch 相关, tensorboard训练过程可视化
+uv add torch torchvision tensorboard
 # 安装深度学习加速模块 cdDNN（仅gpu环境需要安装）
 uv add nvidia-cuda-runtime-cu12
 uv add nvidia-cudnn-cu12
-# NLP 相关
+# NLP 相关 nltk是英文分词，jieba是中文分词
 uv add nltk jieba 
 # Hugging Face 提供了很多数据集和一些BERT预测训练模型
 uv add datasets transformers tokenizers sentencepiece
@@ -41,11 +41,7 @@ uv pip install -r requirements.txt
 
 ```
 
-tensorbroad
-混合精度训练
-nltk
-jieba
-
+https://github.com/datawhalechina/all-in-rag
 
 验证 pytorch 是否可用
 ```python
@@ -308,12 +304,14 @@ from datasets import load_dataset
 ```shell
 #!/bin/bash
 curl -L -o ./data/dl/tokenizer/time-machine.zip https://www.kaggle.com/api/v1/datasets/download/alincijov/time-machine
+
+curl -L -o ./data/dl/tokenizer/time-machine.txt http://d2l-data.s3-accelerate.amazonaws.com/timemachine.txt
 ```
 
 ```python
 
 ```
 
-
+### 
 
 
