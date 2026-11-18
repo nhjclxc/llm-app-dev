@@ -23,8 +23,10 @@
 现在要求你在“02_pytorch/markdowns/PyTorch14_Embedding.md”里面生成“Embedding嵌入”相关的学习知识点。知识点包括但不限于：Embedding嵌入、nn.Embedding以及向量数据库等更灵活的底层构建组件。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。并且要先把原理讲清楚，相关内容越多越好，越详细越好
 
 现在要求你在“02_pytorch/markdowns/PyTorch16_NLP.md”里面生成“NLP 自然语言处理”相关的学习知识点。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。并且要先把原理讲清楚。当前主要是要将相关概念讲清楚，后续我会给你一个个要详细输出的子文档
-现在要求你在“02_pytorch/markdowns/PyTorch16_NLP01_nltk.md”里面生成“NLP 自然语言处理中 NLTK 库的使用”相关的学习知识点。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。
-现在要求你在“02_pytorch/markdowns/PyTorch16_NLP02_jieba.md”里面生成“NLP 自然语言处理中 jieba 库的使用”相关的学习知识点。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。
+现在要求你在“02_pytorch/markdowns/PyTorch16_NLP01_tokenizer01_nltk.md”里面生成“NLP 自然语言处理中 NLTK 库的使用”相关的学习知识点。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。
+现在要求你在“02_pytorch/markdowns/PyTorch16_NLP01_tokenizer02_jieba.md”里面生成“NLP 自然语言处理中 jieba 库的使用”相关的学习知识点。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。
+现在要求你在“02_pytorch/markdowns/PyTorch16_NLP03_embedding01_tradition.md”里面生成“NLP 自然语言处理中 embedding嵌入表示的传统方法，包括但不限于：One-Hot、BoW、TF-IDF、N-gram等”相关的学习知识点。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。
+现在要求你在“02_pytorch/markdowns/PyTorch16_NLP03_embedding02_modern.md”里面生成“NLP 自然语言处理中 embedding嵌入表示的现代方法，包括但不限于：word2vec、BERT Embedding、Transformer Embedding、GPT Embedding等”相关的学习知识点。并且要求学习内容是从0到1的内容，先简单后进阶，要求尽可能详细，每一个知识点都要给出示例代码。
 
 
 torch15_Transformer
