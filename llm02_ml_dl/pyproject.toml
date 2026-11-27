@@ -17,6 +17,7 @@ dependencies = [
     "matplotlib>=3.11.2",
     "nltk>=3.10.4",
     "numpy>=2.5.4",
+    "openai>=3.59.0",
     "pandas>=3.0.6",
     "pandas-stubs==3.0.5.260914",
     "pytest>=9.1.1",

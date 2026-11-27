@@ -16,8 +16,10 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 qwen_api_key = os.getenv("QWEN_API_KEY")
 model_chat = os.getenv("QWEN_MODEL")
 base_url = os.getenv("BASE_URL")
+embedding_model = os.getenv("EMBEDDING_MODEL")
 
 # 调用千问的语言模型
+# https://bailian.console.aliyun.com/cn-beijing/costing-balance/free-quota
 # https://bailian.console.aliyun.com/cn-beijing/?tab=api#/api/?type=model&url=3016807
 if not qwen_api_key:
     sys.exit("未找到 QWEN_API_KEY：请在仓库根目录的 .env 中配置它。")
@@ -30,14 +32,3 @@ if HTTPS_PROXY:
 # os.environ["HTTPS_PROXY"] = "http://127.0.0.1:10808"
 # clash
 # os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7890"
-
-
-# def get_chat_openai(model=model_chat, temperature=0.7, base_url=base_url, api_key=qwen_api_key,
-#             streaming: bool = False) -> ChatOpenAI:
-#     return ChatOpenAI(
-#         model=model,
-#         temperature=temperature,
-#         base_url=base_url,
-#         api_key=api_key,
-#         streaming=streaming
-#     )

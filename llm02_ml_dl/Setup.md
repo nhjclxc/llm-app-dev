@@ -41,7 +41,6 @@ uv pip install -r requirements.txt
 
 ```
 
-https://github.com/datawhalechina/all-in-rag
 
 验证 pytorch 是否可用
 ```python

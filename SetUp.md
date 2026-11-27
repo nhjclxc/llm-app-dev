@@ -79,3 +79,5 @@ print(llm.invoke("你好"))
 
 
 [All-in-RAG | 大模型应用开发实战一：RAG技术全栈指南](https://datawhalechina.github.io/all-in-rag/#/)
+[All-in-RAG | 大模型应用开发实战一：RAG技术全栈指南 github ](https://github.com/datawhalechina/all-in-rag)
+

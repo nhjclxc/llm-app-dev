@@ -1,9 +1,5 @@
-import json
 import sys
 import uuid
-from pyexpat.errors import messages
-
-import openai
 
 
 def main():
@@ -23,8 +19,9 @@ def get_openai_client() -> OpenAI:
         max_retries=3,
     )
 
-def chat_response():
+def test_chat_response():
     model = model_helper.model_chat
+    input = "用两句话解释大语言模型应用开发是什么"
 
     client = get_openai_client()
     print("client.api_key: ", client.api_key)
@@ -35,13 +32,11 @@ def chat_response():
     print("default_query: ", client.default_query)
     print("uuid.uuid4().hex: ", uuid.uuid4().hex)
 
-    # if True:
-    #     return
     try:
         trace_id =  uuid.uuid4().hex
         resp = client.responses.create(
             model=model,
-            input="用两句话解释大语言模型应用开发是什么",
+            input=input,
             extra_headers={"X-Trace-ID": trace_id},
             extra_query={"debug": "false"},
         )
@@ -66,13 +61,8 @@ def chat_response():
 
     pass
 
-def chat_response_parse():
-    client = get_openai_client()
 
-
-    pass
-
-def chat_completion_stream():
+def test_chat_completion_stream():
     client = get_openai_client()
     model = model_helper.model_chat
     resps = client.chat.completions.create(
@@ -91,10 +81,9 @@ def chat_completion_stream():
         pass
     pass
 
-def chat_completion():
+def test_chat_completion():
 
     model = model_helper.model_chat
-    # model = "gpt-5.4"
 
     client = OpenAI(
         api_key=model_helper.qwen_api_key,
@@ -126,11 +115,15 @@ def chat_completion():
 
     pass
 
+def test_embeddings():
+    client = get_openai_client()
+    model = model_helper.model_chat
+    response = client.embeddings.create(
+        model=model,
+        input="嵌入模型",
+        encoding_format="float",
+        dimensions=3
+    )
+    print(response)
 
-if __name__ == "__main__":
-    # main()
-    # chat_response()
-    chat_response_parse()
-    # chat_completion()
-    # chat_completion_stream()
     pass
